@@ -23,10 +23,10 @@ class Korpsmatla extends Admin_Controller
 	public function index()
 	{
 
-        $identity = $this->mgeneral->getAll(tt_korpsdarat, $order_field="id", $order_tipe="asc");
+        $identity = $this->mgeneral->getAll(tt_korpslaut, $order_field="id", $order_tipe="asc");
 
-        $this->data['data_korpsdarat'] = $identity;
-		$this->template->build('datautamas/data_korps_darat/index');
+        $this->data['data_korpslaut'] = $identity;
+		$this->template->build('datautamas/data_korps_laut/index');
 	}
 
 
@@ -38,15 +38,15 @@ class Korpsmatla extends Admin_Controller
       //  $personil = $this->mgeneral->getAll('tr_personil');
 
         if(!empty($encode) and isset($encode))
-            $result['data_korpsdarat'] = $this->mgeneral->getrow(array('id'=>$encode),'tt_korpsdarat');
+            $result['data_korpslaut'] = $this->mgeneral->getrow(array('id'=>$encode),'tt_korpslaut');
 
 
-        $result['nama_korpsdarat']  = $personil;
+        $result['nama_korpslaut']  = $personil;
         $result['created_by']   = $this->_uid;
         $result['created_date'] = date('Y-m-d');
 
         $this->data['data'] = $result;
-        $this->template->build('datautamas/data_korps_darat/form');
+        $this->template->build('datautamas/data_korps_laut/form');
 
 	}
 }

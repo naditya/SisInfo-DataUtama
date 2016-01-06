@@ -4,7 +4,7 @@
         <!-- BASIC -->
         <div class="box border green">
             <div class="box-title">
-                <h4><i class="fa fa-reorder"></i>Tambah Data Korps Matra Darat</h4>
+                <h4><i class="fa fa-reorder"></i>Tambah Data Korps Matra Laut</h4>
                 <div class="tools hidden-xs">
 
                 </div>
@@ -12,9 +12,9 @@
             <div class="box-body big">
                 <form class="form-horizontal row-border"  method="post" id="form">
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Nama Korps Matra Darat</label>
+                        <label class="col-md-3 control-label">Nama Korps Matra Laut</label>
                         <div class="col-md-5">
-                            <input  class="form-control" type="text" name="nama_korpsdarat" id="name" placeholder="Ketik Nama Korps Matra Darat Disini" value="<?php echo (empty($data['data_korpsdarat']->nama_korpsdarat) ?  "" : $data['data_korpsdarat']->nama_korpsdarat)?>">
+                            <input  class="form-control" type="text" name="nama_korpslaut" id="name" placeholder="Ketik Nama Korps Matra Laut Disini" value="<?php echo (empty($data['data_korpslaut']->nama_korpslaut) ?  "" : $data['data_korpslaut']->nama_korpslaut)?>">
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@ function sends(){
             /* destination: {
                 required: true
             }, */
-            nama_korpsdarat: {
+            nama_korpslaut: {
                 required: true
             },
 
@@ -61,10 +61,10 @@ function sends(){
         },
         submitHandler: function(form){
             $.ajax({
-                <?php if(empty($data['data_korpsdarat']->id)){?>
-                url: url+'execute/save/tt_korpsdarat',
+                <?php if(empty($data['data_korpslaut']->id)){?>
+                url: url+'execute/save/tt_korpslaut',
                 <?php }else{?>
-                url: url+"execute/update/tt_korpsdarat/id/<?php echo $data['data_korpsdarat']->id;?>",
+                url: url+"execute/update/tt_korpslaut/id/<?php echo $data['data_korpslaut']->id;?>",
                 <?php }?>
                 type: "POST",
                 dataType:"json",
@@ -75,7 +75,7 @@ function sends(){
                 },
                 success:function(data){
                     new PNotify({
-                        title: 'Data Korps Matra Darat',
+                        title: 'Data Korps Matra Laut',
                         text: 'Berhasil ditambahkan',
                         animation: {
                             effect_in: 'show',
@@ -92,7 +92,7 @@ function sends(){
                     $("#send").removeClass('disabled');
                     setInterval(function() {
 
-                        window.location= url+'datautama/korpsmatdar';
+                        window.location= url+'datautama/korpsmatla';
                     }, 1000);
                 },
                 error: function(message){
