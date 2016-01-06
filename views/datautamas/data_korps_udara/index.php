@@ -3,31 +3,31 @@
 <div class="row">
     <div class="col-md-12">
         <!-- BOX -->
-        <a  class="btn btn-info btn-md pull-right" href="<?php echo site_url('datautama/agama/form');?>">Tambah</a>
+        <a  class="btn btn-info btn-md pull-right" href="<?php echo site_url('datautama/korpsmatud/form');?>">+ Tambah</a>
                 <br/>
                 <br/>
                 <br/>
         <div class="box border blue">
             <div class="box-title">
-                <h4><i class="fa fa-table"></i>Data Agama</h4>
+                <h4><i class="fa fa-table"></i>Data Korps Matra Udara</h4>
             </div>
             <div class="box-body">
                 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="data">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Data Agama</th>
+                            <th>Nama Korps Matra Udara</th>
                             <th>Dibuat Tanggal</th>
                             <th>Dibuat Oleh</th>
                             <th>Opsi Data</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no =1; foreach($data_agama as $key=>$value){?>
+                        <?php $no =1; foreach($data_korpsudara as $key=>$value){?>
                         <tr>
                             <td><?php echo $no;?></td>
                             <td>
-                                <?php echo $value->nama_agama; ?></a>
+                                <?php echo $value->nama_korpsudara; ?></a>
                             </td>
                             <td><?php echo $value->created_date; ?></td>
                             <td>
@@ -44,7 +44,7 @@
                           </td>
 
                             <td>
-                                <a  title="Edit" class="btn btn-warning btn-xs" href="<?php echo site_url('datautama/agama/form/'.base64_encode($value->id))?>">Edit</a>
+                                <a  title="Edit" class="btn btn-warning btn-xs" href="<?php echo site_url('datautama/korpsmatud/form/'.base64_encode($value->id))?>">Edit</a>
                                 <button title="Delete" class="btn btn-danger btn-xs" data-id="<?php echo $value->id;?>" onclick="del(this);">Hapus</button>
 
                             </td>
@@ -140,7 +140,7 @@ function del(btn)
         var id = $(btn).attr('data-id');
         $.ajax({
 
-            url: url+'execute/delete/tt_agama/id/'+id,
+            url: url+'execute/delete/tt_korpsudara/id/'+id,
             type: "POST",
             data:{data_id:id},
             crossDomain:true,
@@ -168,7 +168,7 @@ function update_status(btn){
         var id = $(btn).attr('data-id');
         $.ajax({
 
-            url: url+'execute/update/p_form_identity/id/'+id,
+            url: url+'execute/update/tt_korpsudara/id/'+id,
             type: "POST",
             data:{status:"diajukan"},
             crossDomain:true,

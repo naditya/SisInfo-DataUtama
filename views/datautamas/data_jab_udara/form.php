@@ -4,7 +4,7 @@
         <!-- BASIC -->
         <div class="box border green">
             <div class="box-title">
-                <h4><i class="fa fa-reorder"></i>Tambah Data Agama</h4>
+                <h4><i class="fa fa-reorder"></i>Tambah Data Jabatan Matra Udara</h4>
                 <div class="tools hidden-xs">
 
                 </div>
@@ -12,9 +12,9 @@
             <div class="box-body big">
                 <form class="form-horizontal row-border"  method="post" id="form">
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Nama Agama</label>
+                        <label class="col-md-3 control-label">Nama Jabatan Matra Udara</label>
                         <div class="col-md-5">
-                            <input  class="form-control" type="text" name="nama_agama" id="name" placeholder="Ketik Nama Agama Baru Disini" value="<?php echo (empty($data['data_agama']->nama_agama) ?  "" : $data['data_agama']->nama_agama)?>">
+                            <input  class="form-control" type="text" name="nama_jabudara" id="name" placeholder="Ketik Nama Jabatan Matra Udara Disini" value="<?php echo (empty($data['data_jabudara']->nama_jabudara) ?  "" : $data['data_jabudara']->nama_jabudara)?>">
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@ function sends(){
             /* destination: {
                 required: true
             }, */
-            nama_agama: {
+            nama_jabudara: {
                 required: true
             },
 
@@ -61,10 +61,10 @@ function sends(){
         },
         submitHandler: function(form){
             $.ajax({
-                <?php if(empty($data['data_agama']->id)){?>
-                url: url+'execute/save/tt_agama',
+                <?php if(empty($data['data_jabudara']->id)){?>
+                url: url+'execute/save/tt_jabudara',
                 <?php }else{?>
-                url: url+"execute/update/tt_agama/id/<?php echo $data['data_agama']->id;?>",
+                url: url+"execute/update/tt_jabudara/id/<?php echo $data['data_jabudara']->id;?>",
                 <?php }?>
                 type: "POST",
                 dataType:"json",
@@ -75,7 +75,7 @@ function sends(){
                 },
                 success:function(data){
                     new PNotify({
-                        title: 'Data Agama',
+                        title: 'Data Jabatan Matra Udara',
                         text: 'Berhasil ditambahkan',
                         animation: {
                             effect_in: 'show',
@@ -92,7 +92,7 @@ function sends(){
                     $("#send").removeClass('disabled');
                     setInterval(function() {
 
-                        window.location= url+'datautama/agama';
+                        window.location= url+'datautama/jabmatud';
                     }, 1000);
                 },
                 error: function(message){
