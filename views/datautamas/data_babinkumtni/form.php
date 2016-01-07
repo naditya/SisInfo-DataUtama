@@ -4,7 +4,7 @@
         <!-- BASIC -->
         <div class="box border green">
             <div class="box-title">
-                <h4><i class="fa fa-reorder"></i>Tambah Data Agama</h4>
+                <h4><i class="fa fa-reorder"></i>Tambah Data Babinkum TNI</h4>
                 <div class="tools hidden-xs">
 
                 </div>
@@ -12,9 +12,9 @@
             <div class="box-body big">
                 <form class="form-horizontal row-border"  method="post" id="form">
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Nama Agama</label>
+                        <label class="col-md-3 control-label">Nama Babinkum TNI</label>
                         <div class="col-md-5">
-                            <input  class="form-control" type="text" name="nama_agama" id="name" placeholder="Ketik Nama Agama Baru Disini" value="<?php echo (empty($data['data_agama']->nama_agama) ?  "" : $data['data_agama']->nama_agama)?>">
+                            <input  class="form-control" type="text" name="nama_babinkumtni" id="name" placeholder="Ketik Nama Babinkum TNI Disini" value="<?php echo (empty($data['data_babinkumtni']->nama_babinkumtni) ?  "" : $data['data_babinkumtni']->nama_babinkumtni)?>">
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@ function sends(){
             /* destination: {
                 required: true
             }, */
-            nama_agama: {
+            nama_babinkumtni: {
                 required: true
             },
 
@@ -61,10 +61,10 @@ function sends(){
         },
         submitHandler: function(form){
             $.ajax({
-                <?php if(empty($data['data_agama']->id)){?>
-                url: url+'execute/save/tt_agama',
+                <?php if(empty($data['data_babinkumtni']->id)){?>
+                url: url+'execute/save/tt_babinkumtni',
                 <?php }else{?>
-                url: url+"execute/update/tt_agama/id/<?php echo $data['data_agama']->id;?>",
+                url: url+"execute/update/tt_babinkumtni/id/<?php echo $data['data_babinkumtni']->id;?>",
                 <?php }?>
                 type: "POST",
                 dataType:"json",
@@ -75,7 +75,7 @@ function sends(){
                 },
                 success:function(data){
                     new PNotify({
-                        title: 'Data Agama',
+                        title: 'Data Babinkum TNI',
                         text: 'Berhasil ditambahkan',
                         animation: {
                             effect_in: 'show',
@@ -92,7 +92,7 @@ function sends(){
                     $("#send").removeClass('disabled');
                     setInterval(function() {
 
-                        window.location= url+'datautama/agama';
+                        window.location= url+'datautama/babinkumtni';
                     }, 1000);
                 },
                 error: function(message){
